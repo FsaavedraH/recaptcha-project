@@ -1,0 +1,80 @@
+/* Estilos generales del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0f0f; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    margin: 0;
+    padding: 40px;
+}
+
+/* Estilos para el contenedor */
+.container {
+    background-color: #1c1c1c; /* Color gris oscuro */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid rgb(0, 255, 0); /* Borde verde Razer en formato RGB */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    max-width: 300px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centrar el contenedor */
+    animation: borderBlink 1s infinite alternate; /* Animación para parpadeo del borde */
+}
+
+/* Animación para el parpadeo del borde */
+@keyframes borderBlink {
+    0% { border-color: rgb(0, 255, 0); } /* Verde Razer */
+    100% { border-color: rgba(0, 255, 0, 0.5); } /* Verde más claro */
+}
+
+/* Estilos para el encabezado */
+h1 {
+    font-family: 'Courier New', Courier, monospace; /* Cambiar tipo de letra */
+    text-align: center;
+    background: linear-gradient(90deg, rgba(0, 255, 0, 1) 0%, rgba(0, 191, 255, 1) 50%, rgba(0, 255, 0, 1) 100%); /* Degradado */
+    -webkit-background-clip: text; /* Para que el degradado se aplique al texto */
+    -webkit-text-fill-color: transparent; /* Hacer el texto transparente */
+    animation: glow 1.5s infinite alternate; /* Animación de brillo */
+}
+
+/* Animación de brillo */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(0, 255, 0, 0.5), 0 0 10px rgba(0, 255, 0, 0.5); }
+    100% { text-shadow: 0 0 20px rgba(0, 255, 0, 1), 0 0 30px rgba(0, 255, 0, 1); }
+}
+
+/* Estilos para el texto de instrucciones */
+.instructions {
+    text-align: center; /* Centrar el texto */
+    margin: 15px 0; /* Espaciado vertical */
+}
+
+/* Estilos para la lista de imágenes */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que las imágenes se ajusten en múltiples filas */
+    justify-content: center; /* Centrar horizontalmente */
+    list-style: none; /* Quitar los puntos de la lista */
+    padding: 0;
+    margin: 0; /* Eliminar márgenes */
+}
+
+/* Estilos para cada elemento de la galería */
+.icons {
+    margin: 5px; /* Espaciado entre imágenes */
+    flex: 0 0 calc(33.33% - 10px); /* Cada imagen ocupará aproximadamente el 33.33% del ancho menos márgenes */
+    position: relative; /* Necesario para el efecto de borde */
+}
+
+/* Estilos para las imágenes */
+.icons img {
+    width: 100%; /* Hacer que la imagen ocupe el 100% del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    transition: transform 0.2s, box-shadow 0.3s; /* Transición para efectos al pasar el mouse */
+}
+
+/* Efecto de borde RGB al pasar el mouse */
+.icons:hover img {
+    transform: scale(1.1); /* Aumentar ligeramente el tamaño al pasar el mouse */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7), /* Verde */
+                0 0 10px rgba(0, 255, 0, 0.5); /* Verde más claro */
+}

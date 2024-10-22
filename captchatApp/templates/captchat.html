@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Mi AppCaptcha</title>
+</head>
+<body>
+    <div class="container">
+        <h1> Captcha prueba</h1>
+        {{ titulo }}
+
+        <ul class="image-gallery" id="imageGallery">
+            {% for img in imagenes %}
+            <li class="icons">
+                <img src="{% static 'imagenes/' %}{{ img.name_image }}" alt="{{ img.name_image }}">
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+        // Función para mezclar el array
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Obtener la lista de imágenes y mezclarla
+        const gallery = document.getElementById('imageGallery');
+        const items = Array.from(gallery.children); // Convertir a array
+
+        shuffle(items); // Mezclar
+
+        // Vaciar la galería y agregar los elementos mezclados
+        gallery.innerHTML = '';
+        items.forEach(item => gallery.appendChild(item));
+    </script>
+</body>
+</html>
